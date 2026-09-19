@@ -1,0 +1,127 @@
+:root {
+    --background-container: #c41616ce;
+    --text-color: #f7f6f6;
+    --background-color: linear-gradient(
+            125deg,          /* Ángulo de la diagonal */
+            transparent 30%, /* Transparente hasta el 30% */
+            #fa0404 30%,     /* Color de la franja */
+            #f70606 70%,     /* Color de la franja */
+            transparent 70%  /* Transparente desde el 70% */
+    );;
+    --color-boton: #0f0404;
+    --input-negrita: normal;
+}
+
+body {
+    background: var(--background-color);
+    height: 200px;
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+body.alto-contraste {
+    --background-color: #c71eb9;
+    --background-container: #f9fd18;
+    --text-color: rgb(17, 14, 14);
+    --color-boton: var(--background-color);
+    --input-negrita: bold;
+}
+
+input {
+  font-weight: var(--input-negrita); 
+  font-size: 1rem;
+  padding: 8px 12px;
+}
+
+.tarjeta {
+    width: 50%;
+    height: auto;
+    background-color: var(--background-container);
+    color: var(--text-color);
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    max-width: 380px;
+}
+
+#titulo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.campo {
+    font-weight: bold;
+    font-size: 16px;
+    input, select {
+        width: 80%;
+        padding: 14px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.campo select {
+    font-weight: var(--input-negrita);
+}
+
+.mensaje-container {
+    background-color: var (--background-container);
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.mensaje-envio {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+#btn-enviar {
+    color: var(--color-boton);
+    background-color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btn-normal {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btn-contraste {
+    background-color: var(--text-color);
+    color: var(--color-boton);
+    border: 1px solid var(--text-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+

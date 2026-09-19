@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+
+<body>
+    <div class = "tarjeta">
+        <h2 id="titulo"> Formulario</h2>
+        <form id="form-registro" novalidate>
+            <div class = "campo">
+                <label for = "nombre">Nombre: </label>
+                <input
+                    type = "text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Ingrese su nombre"
+                    minLength="2"
+                    pattern="[A-Za-z\s]+"
+                    required
+                />
+            </div>
+            <div class = "campo">
+                <label for = "apellido">Apellido: </label>
+                <input
+                    type = "text"
+                    id="apellido"
+                    name="apellido"
+                    placeholder="Ingrese su apellido"
+                    minLength="2"
+                    pattern="[A-Za-z\s]+"
+                    required
+                />
+            </div>
+            <div class = "campo">    
+                <label for = "email"> Email: </label>
+                <input
+                    type = "email"
+                    id="email"
+                    name="email"
+                    placeholder="Ingrese su email"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                    required
+                />
+            </div>
+            <div class = "campo">
+                <label for = "fechaNacimiento"> Fecha de Nacimiento: </label>
+                <input
+                    type = "date"
+                    id="fechaNacimiento"
+                    name="fechaNacimiento"
+                    max="2026-08-25"
+                    min="1900-12-12"
+                    required
+                />
+            </div>
+            <div class="campo">
+                <label for="Pais">País:</label>
+
+                <select id="Pais" name="Pais" required>
+                    <option value="Argentina">🇦🇷 Argentina</option>
+                    <option value="Bulgaria">🇧🇬 Bulgaria</option>
+                    <option value="China">🇨🇳 China</option>
+                    <option value="Montenegro">🇲🇪 Montenegro</option>
+                    <option value="Paraguay">🇵🇾 Paraguay</option>
+                    <option value="Uruguay">🇺🇾 Uruguay</option>
+                    <option value="Zambia">🇿🇲 Zambia</option>
+                </select>
+            </div>
+        </form>
+        <div class = "botones">
+        <button type="submit" form="form-registro" id="btn-enviar">Enviar</button>
+        <button type="button" id="btn-contraste">Modo Alto Contraste</button>
+        <button type="button" id="btn-normal">Modo Predeterminado</button>
+        </div>
+        
+    <div class="mensaje-container">
+        <p id="mensaje-envio" class="mensaje-envio"></p>
+    </div>
+    </div>
+
+
+<script>
+    const body = document.body;
+    const form = document.getElementById('form-registro');
+    const mensajeEnvio = document.getElementById('mensaje-envio');
+
+    mensajeEnvio.addEventListener("click", () => {
+        body.classList.remove('alto-contraste');
+    })
+
+    document.getElementById('btn-normal').addEventListener("click", () => {
+        body.classList.remove('alto-contraste');
+    })
+
+    document.getElementById('btn-contraste').addEventListener("click", () => {
+        body.classList.add('alto-contraste');
+    })
+
+    form.addEventListener('submit',(e) => {
+        e.preventDefault();
+        if(form.checkValidity()) {
+            mensajeEnvio.textContent = "Formulario enviado correctamente.";
+            mensajeEnvio.classList.add("visible");
+        } else {
+            form.reportValidity();
+            mensajeEnvio.textContent = "Por favor, complete todos los campos correctamente.";            
+            mensajeEnvio.classList.add("visible");
+        }
+    })
+</script>
+
